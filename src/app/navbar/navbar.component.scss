@@ -1,0 +1,41 @@
+header{
+    margin: 0 auto;
+    max-width: 70%;
+    height: 70px;
+    // line-height: 70px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10px;
+    // border: 1px solid black
+}
+
+header span{
+    font-weight: 800;
+    color: rgb(255, 255, 255);
+}
+
+.nav__links{
+    list-style: none;
+}
+
+ul li{
+    display: inline;
+    margin-left: 30px;
+}
+
+.nav__links li a{
+    display: inline;
+    text-decoration: none;
+    // font-weight: 500;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.nav__links li a:hover{
+    transition: 0.5s;
+    font-size: 20px;
+    color: rgb(86, 31, 197);
+}

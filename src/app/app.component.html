@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+
+<section class="search-everything">
+    <div class="array-box">
+        <h3>Let's know how this works. Just type your search</h3>
+        <div class="form">
+            <input [(ngModel)]="fieldSearch" type="text" placeholder="You can filter by code, country, state etc">
+            <!-- <button>Search</button> -->
+        </div>
+
+        <h3 *ngIf="fieldSearch">You're searching: {{ fieldSearch }}</h3>
+
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of filteredValues">
+                    <td>{{ item.Code }}</td>
+                    <td>{{ item.Country }}</td>
+                    <td>{{ item.State }}</td>
+                    <td>{{ item.Amount }}</td>
+                </tr>
+            </tbody>
+        </table> <!-- content-table -->
+    </div>
+</section>
+
+<section class="search-by-type">
+    <div class="array-box">
+        <h3>In this one you can search by type. Just choose one:</h3>
+        <form action="">
+
+            <label class="container" *ngFor="let item of checkboxOptions">{{ item.Name }}
+                <input type="checkbox" [checked]="item.IsSelected" (change)="item.IsSelected = !item.IsSelected">
+                <span class="checkmark"></span>
+            </label>
+
+            <!-- <label class="container">Country
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">State
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">Amount
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label> -->
+
+        </form>
+
+
+        <div class="form">
+            <input [(ngModel)]="fieldSearch" type="text" placeholder="Type something here...">
+            <button>Search</button>
+        </div>
+
+        <h3 *ngIf="fieldSearch">You're searching: {{ fieldSearch }}</h3>
+
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let item of filteredValues">
+                    <td>{{ item.Code }}</td>
+                    <td>{{ item.Country }}</td>
+                    <td>{{ item.State }}</td>
+                    <td>{{ item.Amount }}</td>
+                </tr>
+            </tbody>
+        </table> <!-- content-table -->
+    </div>
+</section>
+
+<app-footer></app-footer>

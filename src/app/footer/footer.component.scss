@@ -1,0 +1,57 @@
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 50px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+
+.linkedin-box{
+    margin-bottom: 10px;
+    // border: 1px solid black;
+}
+
+.linkedin-box span, i{
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+}
+
+.linkedin-box a{
+    text-decoration: none;
+}
+
+.github-box{
+    margin-bottom: 20px;
+}
+
+.text-footer a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    transition: 0.5s;
+}
+
+.text-footer a:hover{
+    text-decoration: none;
+    transition: 0.5s;
+    color: rgb(219, 200, 30);
+    font-size: 32px;
+}
+
+.github-icon{
+    margin-right: 10px;
+    color: rgb(0, 0, 0);;
+    font-size: 30px;
+}
+
+.github-icon:hover{
+    color: rgb(0, 0, 0);
+}
+
+.linkedin-icon{
+    color: rgb(255, 255, 255);
+    margin-right: 4px;
+}
