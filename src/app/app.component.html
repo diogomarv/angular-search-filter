@@ -42,30 +42,13 @@
                 <span class="checkmark"></span>
             </label>
 
-            <!-- <label class="container">Country
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="container">State
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="container">Amount
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label> -->
-
         </form>
 
 
         <div class="form">
-            <input [(ngModel)]="fieldSearch" type="text" placeholder="Type something here...">
+            <input [(ngModel)]="fieldSearchByType" type="text" placeholder="Type something here...">
             <button>Search</button>
         </div>
-
-        <h3 *ngIf="fieldSearch">You're searching: {{ fieldSearch }}</h3>
 
         <table class="content-table">
             <thead>
@@ -78,7 +61,7 @@
             </thead>
 
             <tbody>
-                <tr *ngFor="let item of filteredValues">
+                <tr *ngFor="let item of filteredValuesByType">
                     <td>{{ item.Code }}</td>
                     <td>{{ item.Country }}</td>
                     <td>{{ item.State }}</td>
