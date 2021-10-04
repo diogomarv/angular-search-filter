@@ -38,6 +38,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit() { }
 
+  public get isOneSelected(): boolean{
+    if(this.checkboxOptions.find(x => x.IsSelected == true))
+      return true;
+
+    return false;
+  }
+
   public get fieldSearch() {
     return this._fieldSearch;
   }
@@ -62,7 +69,7 @@ export class AppComponent implements OnInit {
   }
 
   filterValues(content: string) {
-    return this.values.filter(x => x.State.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1)
+    return this.values.filter(x => x.State.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
   }
 
   filterValuesByType(content: string, type: string) {

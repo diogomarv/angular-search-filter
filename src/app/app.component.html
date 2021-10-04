@@ -47,7 +47,7 @@
 
         <div class="form">
             <input [(ngModel)]="fieldSearchByType" type="text" placeholder="Type something here...">
-            <button>Search</button>
+            <button [style.background-color]="isOneSelected ? '#00c9b7' : ''">Search</button>
         </div>
 
         <table class="content-table">
