@@ -30,10 +30,10 @@ export class AppComponent implements OnInit {
   filteredValuesByType: LocalEventsDTO[] = this.valuesByType;
 
   checkboxOptions = [
-    { Name: "Code", IsSelected: false },
-    { Name: "Country", IsSelected: false },
-    { Name: "State", IsSelected: false },
-    { Name: "Amount", IsSelected: false }
+    { Type: "Code", IsSelected: false },
+    { Type: "Country", IsSelected: false },
+    { Type: "State", IsSelected: false },
+    { Type: "Amount", IsSelected: false }
   ]
 
   ngOnInit() { }
@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
 
     this.checkboxOptions.forEach(x => {
       if (x.IsSelected)
-        this.filteredValuesByType = this.valuesByType ? this.filterValuesByType(content, x.Name) : this.valuesByType;
+        this.filteredValuesByType = this.valuesByType ? this.filterValuesByType(content, x.Type) : this.valuesByType;
     });
 
   }

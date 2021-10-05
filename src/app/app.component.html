@@ -37,7 +37,7 @@
         <h3>In this one you can search by type. Just choose one:</h3>
         <form action="">
 
-            <label class="container" *ngFor="let item of checkboxOptions">{{ item.Name }}
+            <label class="container" *ngFor="let item of checkboxOptions">{{ item.Type }}
                 <input type="checkbox" [checked]="item.IsSelected" (change)="item.IsSelected = !item.IsSelected">
                 <span class="checkmark"></span>
             </label>
