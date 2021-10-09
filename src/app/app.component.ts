@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() { }
 
-  public get isOneSelected(): boolean{
-    if(this.checkboxOptions.find(x => x.IsSelected == true))
+  public get isOneSelected(): boolean {
+    if (this.checkboxOptions.find(x => x.IsSelected == true))
       return true;
 
     return false;
@@ -75,11 +75,17 @@ export class AppComponent implements OnInit {
   filterValuesByType(content: string, type: string) {
     let result: LocalEventsDTO[] = [];
 
+    if (type == 'Code')
+      result = this.valuesByType.filter(x => x.Code.toString().toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
+
     if (type == 'Country')
       result = this.valuesByType.filter(x => x.Country.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
 
     if (type == 'State')
       result = this.valuesByType.filter(x => x.State.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
+
+    if (type == 'Amount')
+      result = this.valuesByType.filter(x => x.Amount.toString().toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
 
     return result;
   }

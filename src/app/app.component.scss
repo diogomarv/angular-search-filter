@@ -159,3 +159,13 @@ td {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+.msg-error{
+    color: #fff;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 2px 5px;
+    background-color: #1b1b1b;
+    max-width: 380px;
+    margin: 0 auto;
+}

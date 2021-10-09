@@ -50,7 +50,7 @@
             <button [style.background-color]="isOneSelected ? '#00c9b7' : ''">Search</button>
         </div>
 
-        <table class="content-table">
+        <table *ngIf="filteredValuesByType.length > 0" class="content-table">
             <thead>
                 <tr>
                     <th>Code</th>
@@ -69,6 +69,11 @@
                 </tr>
             </tbody>
         </table> <!-- content-table -->
+
+        <div  class="msg-error">
+            <p>Sorry! There's nothing here to show you :(</p>
+        </div>
+
     </div>
 </section>
 
