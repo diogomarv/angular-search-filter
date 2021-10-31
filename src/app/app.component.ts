@@ -45,19 +45,28 @@ export class AppComponent implements OnInit {
     return false;
   }
 
-  public get fieldSearch() {
-    return this._fieldSearch;
-  }
-
+  /* set values to _fieldSearc and return values */
   public set fieldSearch(content: string) {
     this._fieldSearch = content;
     this.filteredValues = this.values ? this.filterValues(content) : this.values;
   }
 
-  public get fieldSearchByType() {
-    return this._fieldSearchByType;
+  public get fieldSearch() {
+    return this._fieldSearch;
   }
 
+  filterValues(content: string) {
+    let codes = this.values.filter(x => x.Code.toString() == content);
+    let amounties = this.values.filter(x => Array.from(String(x.Amount), Number).indexOf(Number(content)) != -1);
+    let states = this.values.filter(x => x.State.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
+    let countries = this.values.filter(x => x.Country.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
+
+    let result = this.removeDuplicates([...codes, ...amounties, ...states, ...countries]);
+
+    return result;
+  }
+
+  /* set values to _fieldSearchByType and return values */
   public set fieldSearchByType(content: string) {
     this._fieldSearchByType = content;
 
@@ -65,11 +74,10 @@ export class AppComponent implements OnInit {
       if (x.IsSelected)
         this.filteredValuesByType = this.valuesByType ? this.filterValuesByType(content, x.Type) : this.valuesByType;
     });
-
   }
 
-  filterValues(content: string) {
-    return this.values.filter(x => x.State.toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
+  public get fieldSearchByType() {
+    return this._fieldSearchByType;
   }
 
   filterValuesByType(content: string, type: string) {
@@ -88,6 +96,19 @@ export class AppComponent implements OnInit {
       result = this.valuesByType.filter(x => x.Amount.toString().toLocaleLowerCase().indexOf(content.toLocaleLowerCase()) != -1);
 
     return result;
+  }
+
+  /* useful functions */
+  removeDuplicates(arr: LocalEventsDTO[]) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = i + 1; j < arr.length; j++) {
+        if (arr[i].Code == arr[j].Code) {
+          arr.splice(j, 1);
+        }
+      }
+    }
+
+    return arr;
   }
 
 }
